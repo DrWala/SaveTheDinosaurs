@@ -474,3 +474,10 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #222;
 }
+.centerPoints{
+    float: none;
+    display: inline-block;
+}
+.aboutus{
+    text-align: center;
+}
