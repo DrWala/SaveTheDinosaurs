@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>#SaveTheDinosaurs</title>
+    <script type="text/javascript" src="js/instafeed.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -31,6 +32,17 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        var feed = new Instafeed({
+            get: 'tagged',
+            tagName: 'helpthedinosaurs',
+            clientId: 'b20dbd0c35d94fe6adeda0e9f4b61d31',
+            resolution: 'low_resolution',
+            links: true,
+            limit: 10
+        });
+        feed.run();
+    </script>
 
 </head>
 
@@ -142,7 +154,8 @@
     </section>
 
     <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
+        <div id="instafeed"></div>
+        <!-- <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
                     <a href="#" class="portfolio-box">
@@ -189,53 +202,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <!-- <aside class="bg-dark">
@@ -277,6 +245,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    
 
 </body>
 
