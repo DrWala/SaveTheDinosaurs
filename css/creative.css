@@ -493,3 +493,18 @@ body {
 #instafeed{
     text-align: center;
 }
+#energy, #challenges{
+    padding-top: 0;
+}
+.ct-chart{
+    height: 450px;
+    width: auto;
+    margin: auto 40px;
+    display: inline-block;
+}
+.ct-chart *{
+    font-size: 15px !IMPORTANT;
+}
+#contact{
+    margin-top: -200px;
+}

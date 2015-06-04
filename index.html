@@ -11,6 +11,7 @@
 
     <title>#HelpTheDinosaurs</title>
     <script type="text/javascript" src="js/instafeed.min.js"></script>
+    <script type="text/javascript" src="js/chartist.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -25,6 +26,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/chartist.min.css" type="text/css">
+    <script src="js/jquery.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,15 +42,61 @@
             clientId: 'b20dbd0c35d94fe6adeda0e9f4b61d31',
             resolution: 'low_resolution',
             links: true,
-            limit: 9
+            limit: 10
         });
         feed.run();
+      
+$(function(){
+    new Chartist.Pie('#chart1', 
+    {
+        labels: ['Never(20%)', '1-5(33%)', '6-10(37%)', '10+(10%)'],
+        series: [20, 33, 37, 10]
+    }, 
+    {
+      donut: true,
+      donutWidth: 100,
+      startAngle: 270,
+      total: 200,
+      showLabel: true,
+    });
+    new Chartist.Bar('#chart2', {
+      labels: ['Yes', 'No'],
+      series: [
+        [45, 25]
+      ]
+    }, {
+      stackBars: true,
+      axisY: {
+        labelInterpolationFnc: function(value) {
+          return (value);
+        }
+      }
+    }).on('draw', function(data) {
+      if(data.type === 'bar') {
+        data.element.attr({
+          style: 'stroke-width: 30px'
+        });
+      }
+    });
+    new Chartist.Pie('#chart3', 
+    {
+        labels: ['16(23%)', '12-22(73%)',''],
+        series: [23, 73, 4]
+    }, 
+    {
+      donut: true,
+      donutWidth: 100,
+      startAngle: 270,
+      total: 200,
+      showLabel: true,
+    });
+});
+
     </script>
 
 </head>
 
 <body id="page-top">
-
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -60,7 +109,6 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Back to top</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -71,11 +119,21 @@
                         <a class="page-scroll" href="#stats">Statistics</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Our Work</a>
+                        <a class="page-scroll" href="#energy">Energy Pathway</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#challenges">Energy Challenges</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Operation V50</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#charts">V50 Analysis</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -152,58 +210,51 @@
             </div>
         </div>
     </section>
-
+    <section id="energy">
+        <div class="container text-center">
+            <h2 class="section-heading">Singapore's Energy Pathway</h2>
+            <hr class="primary">
+            <img src="http://www.energyportal.sg/images/energy_101/how_energy_generated.png" alt="energy generation" class="img-responsive center-block">
+            <br/>
+            <br/>
+            <img src="http://senokoenergy.com/images/static/electricity-market.jpg" alt="electricity market in singapore" class="img-responsive center-block">
+        </div>
+    </section>
+    <section id="challenges">
+        <div class="container text-center">
+            <h2 class="section-heading">Singapore's Energy Challenges</h2>
+            <hr class="primary">
+            <img src="img/energy1.png" alt="" class="img-responsive center-block">
+            <br/>
+            <br/>
+            <!-- <img src="http://www.mewr.gov.sg/images/default-source/module/policy-topic/clean-energy/clean-energy-issue.jpg" alt=""> -->
+            <br/>
+            <br/>
+            <!-- <img src="http://www.mewr.gov.sg/images/default-source/module/policy-topic/clean-energy/clean-energy-efforts_s2.jpg" alt=""> -->
+            <!-- <br/>
+            <br/>
+            <img src="http://www.mewr.gov.sg/images/default-source/module/policy-topic/clean-energy/progress.jpg" alt=""> -->
+        </div>
+    </section>
     <section class="no-padding" id="portfolio">
-        <div id="instafeed"></div>
-        <!-- <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div> -->
+    <div class="container text-center">
+        <h2 class="section-heading">Our Instagram Feed</h2>
+        <hr class="primary">
+    </div>
+    <div id="instafeed"></div>
+    </section>
+    <section id="charts">
+        <div class="containter text-center">
+            <h2 class="section-heading">V50 Analysis</h2>
+            <hr class="primary">
+            <br>
+           
+            <div id="chart1" class="ct-chart img-responsive"><h3>Air Conditioning usage (hours)</h3></div>
+            
+            <div id="chart2" class="ct-chart img-responsive"><h3>Switching off your set top box and TV</h3></div>
+            
+            <div id="chart3" class="ct-chart img-responsive"><h3>Final score upon 30</h3></div> 
+        </div>
     </section>
 
     <!-- <aside class="bg-dark">
@@ -233,7 +284,6 @@
     </section>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
